@@ -3,12 +3,12 @@ I first tcheck what is a CSRF attak, then  i discover that its just a basic fish
 use established session tokens from the user whitout any verification by making 
 the user click on somethings, like a url or a basic button that contain an hidden POST request.
 So i locked up on the internet some example , i tried and it doesnt work .
-<h1>You Are a Winner!</h1>
+<!-- <h1>You Are a Winner!</h1>
   <form action="http://example.com/api/account" method="post">
     <input type="hidden" name="Transaction" value="withdraw" />
     <input type="hidden" name="Amount" value="1000000" />
   <input type="submit" value="Click Me"/>
-</form>
+</form> -->
 
 Then We tried with burp, sending  a typical request by changing the name of th user in the settigns.
 
