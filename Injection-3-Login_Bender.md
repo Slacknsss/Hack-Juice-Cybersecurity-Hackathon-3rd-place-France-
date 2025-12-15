@@ -23,11 +23,11 @@ Done ! and now i can repeat the same process with any account registered on the 
 
 ## Risks
 
-Allowing anyone to log in as another user, even account with admin privilege wich can be harmfull in many ways, such as impersonation or tampering with the application with admin privileges.
-In term of business image it can lead to catastrophic consequences and multiples security problems with someone buying things on the app with the previously registered method of payments for example.
+    Allowing anyone to log in as another user, even account with admin privilege wich can be harmfull in many ways, such as impersonation or tampering with the application with admin privileges.
+    In term of business image it can lead to catastrophic consequences and multiples security problems with someone buying things on the app with the previously registered method of payments for example.
 
 ## Actions
 
-The login form need to be sanitized.
+Eliminate the possibility of injections by using parameterized statements and ensuring the login verifies credentials properly (e.g., compare hashed passwords).
 
 
