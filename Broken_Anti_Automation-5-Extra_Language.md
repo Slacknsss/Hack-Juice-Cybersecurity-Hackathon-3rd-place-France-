@@ -1,4 +1,0 @@
-##### **Methodology:**
-##### **Vulnerability:**
-##### **Risks:**
-##### **Actions:**
