@@ -3,7 +3,8 @@ I first tcheck what is a CSRF attak, then  i discover that its just a basic fish
 use established session tokens from the user whitout any verification by making 
 the user click on somethings, like a url or a basic button that contain an hidden POST request.
 So i locked up on the internet some example , i tried and it doesnt work .
-![image](https://cdn.discordapp.com/attachments/1447961589973254244/1447978094605369506/Capture_decran_2025-12-09_a_16.47.22.png?ex=6939962f&is=693844af&hm=d3b332edd86edbd9ee2ce21d7f1d5c1464eaeb015fd5eaf6417c18e27c67c58e&)
+
+![image](./assets/req1.png)
 
 Then We tried with burp, sending  a typical request by changing the name of th user in the settigns.
 
