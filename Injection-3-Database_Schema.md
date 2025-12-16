@@ -28,8 +28,8 @@ I was now in possession of valuables informations for the rest of the injection 
 
 ## Risks
 
-    Allowing full access to the database is a major security issue because using the information from that query an attacker can craft multiple sql injection that will work much faster to retrieve sensibles datas.
-    This would cause a huge loss of trust for the website and possibly.
+    Allowing full access to the database is a major security issue because using the information from that query an attacker can craft multiple sql injection to retrieve sensibles datas.
+    This would cause a huge loss of trust for the website and possibly serve as leverage for more security breach.
 
 ## Actions
 
