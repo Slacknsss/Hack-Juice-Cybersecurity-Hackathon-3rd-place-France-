@@ -22,7 +22,7 @@ It worked flawlessly
 
 ## Risks
 
-    Allowing clients to increment likes without any server-side controls means that anyone can artificially boost the credibility of a review. This manipulates user perception, undermines trust in the platform, and can be exploited for marketing fraud, reputation inflation, or discrediting competitor products. Automated scripts or bots could easily flood the endpoint and generate thousands of likes in seconds.
+    Allowing clients to increment likes without any server-side controls means that anyone can artificially boost the credibility of a review. This manipulates user perception, undermines trust in the platform, and can be exploited for marketing fraud, reputation inflation, or discrediting competitor products. 
 
 ## Actions
 
