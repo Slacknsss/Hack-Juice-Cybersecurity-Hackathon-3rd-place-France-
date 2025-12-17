@@ -15,7 +15,7 @@ The underlying filesystem, however, treats the null byte (%00) as the end of the
 ##### **Actions:**
 poison null byte 
 Double encodage
-we use %2500
+we use %2500 to bypass blbalblab 
 
 
 ![image](./assets/forgottent3.png)
