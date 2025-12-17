@@ -21,7 +21,7 @@ He told me James T.kirk is called Jim in this movies so  i check his wiki and fi
 the response to the question is 
 password is 
 --Samuel--
-![image](./assets/jims7.pngpng)
+![image](./assets/jims7.png)
 **##### **Vulnerability:****
 
 **##### **Risks:****
