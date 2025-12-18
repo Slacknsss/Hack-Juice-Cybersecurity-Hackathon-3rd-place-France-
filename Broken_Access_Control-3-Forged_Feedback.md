@@ -1,20 +1,31 @@
 ##### **Methodology:**
-To post some feedback in another user's name my first id was to tchek the main.js and ctrl-f as always to find some user's function to see how its done , then i find nothing and try to intercepet the POST request when submiting a feedback .
+To post some feedback in another user's name, my first idea was to check the `main.js` and do ctrl+f (as always) to find some user function and see how its done. I find nothing, so i just try to intercept the POST request when submitting a feedback.
 
+---
 
 ##### **Vulnerability:**
-i catch it 
+**Type:** IDOR (Insecure Direct Object Reference)  
+**Component:** Feedback POST request (user_id parameter)  
+**Severity:** High  
+
+I catch the request in Burp.
+
 ![image](./assets/screnne2.png)
-then i just try to change the user id by 2, (was 1)
 
-[image](./assets/screnne3.png)
+Then i just try to change the user id to `2` (it was `1`).
 
-and bingo , thats creat a new comment on from an other user .
+![image](./assets/screnne3.png)
+
+And bingo 😅 it create a new comment from another user.
+
+---
+
 ##### **Risks:**
+Anyone can impersonate other users by changing the `user_id`, so you can post/edit stuff as them. If same logic exist on other endpoints, it can be way worse (data access / account actions).
 
-
-
-
+---
 
 ##### **Actions:**
-Burp reapter changing user id 
+- Intercept POST request in Burp
+- Send to Repeater
+- Change `user_id` and resend
