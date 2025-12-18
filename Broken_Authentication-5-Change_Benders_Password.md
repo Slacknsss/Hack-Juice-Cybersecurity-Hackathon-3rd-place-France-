@@ -1,17 +1,36 @@
-**Change Bender's password into slurmCl4ssic without using SQL Injection or Forgot Password. (Difficulty Level: 5)**
-**##### **Methodology:****
-I log in on the bender account from my reset pasword from the previous challenge .
-then i went to the 'change password' parameters on the wbesite and rty to catch the req when i put a new password (with a fake correcte password)C
+##### Methodology:
+I log in on the Bender account (from the previous reset password challenge).
+Then i go to the "change password" settings and i try to catch the request when i submit a new password (i put a fake current password just to generate the req).
+
 ![image](./assets/CBP1.png)
 
-then try to understand the line : change-password?current=AZERTYUIOP78?&new=AZERT&repeat=AZERT
-the current objectif is to cahnge the password into 'slurmCl4ssic' so i try to replace (i sent to the repeater before)the 'new' and 'repeat'but got few code 401 and the final try that succes :
+After that i look at the request and try to understand how the params are working (current / new / repeat).
+I send it to Repeater and i try to change only the `new` + `repeat` values to `slurmCl4ssic`.
+At first i got some `401`, but after a few tries it finally accepted the change.
 
 ![image](./assets/CBP2.png)
-and got 
+
+And proof after:
+
 ![image](./assets/CBP3.png)
-**##### **Vulnerability:****
 
-**##### **Risks:****
+---
 
-**##### **Actions:****
+##### Vulnerability:
+**Type:** Broken password change validation (server-side check weak / bypassable)  
+**Component:** Change password endpoint (params: current/new/repeat)  
+**Severity:** High  
+
+---
+
+##### Risks:
+- Anyone with access to an account session can change the password too easily
+- Can lead to full account takeover if the current password is not properly verified
+- If this endpoint is accessible in weird ways (like GET params), its even worse
+
+---
+
+##### Actions:
+- Intercept change password request in Burp
+- Send to Repeater
+- Modify `new` + `repeat` to target password and replay until success
