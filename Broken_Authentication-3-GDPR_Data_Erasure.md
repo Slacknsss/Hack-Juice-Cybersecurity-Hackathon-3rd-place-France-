@@ -1,13 +1,29 @@
-**Log in with Chris' erased user account. (Difficulty Level: 3)**
+##### Methodology:
+First thing i do is to find the Chris account, so i use again SQL injection to access the user database and see if the user is really “erased” or just hidden.
 
-**##### **Methodology:****
-first thing i do is to find the chris accout , so i use again sql injection to acces to the user database 
-![iamge](./assets/GDPR2.png)
-then i basicaly test it with a 1 charactere password to try to get the req but the challenge validate itself 
-![iamge](./assets/GDPR.png)
+![image](./assets/GDPR2.png)
 
-**##### **Vulnerability:****
+Then i basically try to login with a super short password (like 1 character) just to see how the request behave, and the challenge validate itself 😅
 
-**##### **Risks:****
+![image](./assets/GDPR.png)
 
-**##### **Actions:****
+---
+
+##### Vulnerability:
+**Type:** Broken deletion / GDPR bypass (erased account still usable)  
+**Component:** User database + login flow (deleted users still authenticable)  
+**Severity:** High  
+
+---
+
+##### Risks:
+- “Deleted” accounts can still be accessed, so GDPR/erasure is fake
+- Old accounts can be taken back / abused (impersonation, data access)
+- Trust issue + legal risk if personal data is supposed to be removed
+
+---
+
+##### Actions:
+- Check user existence via SQLi in user DB
+- Try login on the erased account (minimal input test)
+- Confirm the account is still valid even after “erase”
