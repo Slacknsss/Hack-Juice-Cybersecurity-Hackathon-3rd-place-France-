@@ -2,7 +2,7 @@
 
 ## Methodology
 
-First, knowing the login form was a weak point from the "Login Admin" exerice previously done, i just tried to bypass the need for a password in a similar way.
+First, knowing the login form was a weak point from the "Login Admin" exercice previously done, i just tried to bypass the need for a password in a similar way.
 Using the administration panel i just looked up the mail of jim wich i could have 
 
 ![image](./assets/LoginJim.png)
@@ -32,5 +32,3 @@ Done ! and now i can repeat the same process with any account registered on the 
 ## Actions
 
 Eliminate the possibility of injections by using parameterized statements and ensuring the login verifies credentials properly (e.g., compare hashed passwords).
-
-
