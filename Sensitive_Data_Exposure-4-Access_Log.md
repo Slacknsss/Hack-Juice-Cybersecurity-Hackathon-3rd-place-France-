@@ -1,28 +1,62 @@
 ##### **Methodology:**
-when i saw "acces" directly think about change thr url , then i look up in th internet how to brute foce url path .
-we already know the /ftp path because of the confidential challenge where we explore the "About us" and find it in the link ;
+When i saw "access" i directly think about changing the URL 
+So i look up on internet how to brute force URL paths.
+
+We already know the `/ftp` path because of the confidential challenge where we explore "About us" and find it inside a link:
+
 ![image](./assets/Access1.png)
-then we explore the ftp page: 
+
+Then we explore the ftp page:
+
 ![image](./assets/Access2.png)
-then i learn how to brute force the url path , to find which hidden path is here , by using intruder methode on burb ;
-(i first us a basic Get request , send it to intruder and change the req by GET/$path$ HTTP2)
-i putt all the basic name of path i find on google .
+
+After that i learn how to brute force hidden paths with Burp Intruder.
+I start with a basic GET request, send it to Intruder, and use a payload position for the path (like `GET /$path$ HTTP/2`).
+Then i put a list of common paths i found on google:
+
 ![image](./assets/Access3.png)
-Got 
+
+I got this:
+
 ![image](./assets/Access6.png)
-SO i saw that the ftp got a diff lenght , so i assum its a real endpoint.
-I continu to test the path because all the other got the same size , it cane be due to a  catch-all Angular .
-I continu to test with "support" because i can see a lot of this word on errors messages;
-i implement it in the request : GET/support/path...+ adding only some of the keys word find on a other siteweb debunker
+
+So i saw `/ftp` got a different length, so i assume its a real endpoint.
+Most of the other paths got the same size, so i think it can be a catch-all (Angular style), so i keep testing.
+
+I try with `support` because i see this word a lot in error messages.
+So i test stuff like `/support/<word>` with some keywords i found from other web debunkers lists:
+
 ![image](./assets/Access4.png)
 ![image](./assets/Access5.png)
-It works with 'logs'
-so i tried the path 
-https://ctf.juice.cyber.epitest.eu/support/logs
-and got this : 
+
+It works with `logs`, so i try the final path:
+
+`https://ctf.juice.cyber.epitest.eu/support/logs`
+
+And i got this:
+
 ![image](./assets/Access7.png)
-green flag
+
+Green flag 
+
+---
 
 ##### **Vulnerability:**
+**Type:** Forced browsing / hidden endpoint discovery  
+**Component:** Web routing (hidden paths like `/support/logs`)  
+**Severity:** Medium  
+
+---
+
 ##### **Risks:**
+- Sensitive pages like logs/support panels can be accessible just by guessing the URL
+- Info leak (paths, internal data, errors, maybe tokens/logs)
+- Helps attackers map the app faster
+
+---
+
 ##### **Actions:**
+- Use known endpoint (`/ftp`) as starting point
+- Burp Intruder brute force common paths
+- Compare response length/status to detect real endpoints
+- Find `/support/logs` and access it
