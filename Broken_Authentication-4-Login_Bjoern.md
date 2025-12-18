@@ -1,8 +1,6 @@
 
-**Log in with Bjoern's Gmail account without previously changing his password, applying SQL Injection, or hacking his Google account. (Difficulty Level: 4)**
-**##### **Methodology:****
-i search on the main.js diff keys word like authentification/login/code/password/authlogin,
-and find an interresting bloc ;
+**Methodology:****
+I search in `main.js` with different keywords like `authentication`, `login`, `code`, `password`, `authlogin`, etc, and i find an interesting block:
 ![image](./assets/LB1.png)
 more specifically this line :
 const i = btoa(o.email.split("").reverse().join(""));
@@ -17,8 +15,21 @@ and decode it with the Burb decoder;
 it works 
 ![image](./assets/LB4.png)
 
-**##### **Vulnerability:****
+---
 
-**##### **Risks:****
+##### Vulnerability:
+**Type:** Broken authentication (predictable/reversible login code derived from email)  
+**Component:** Frontend auth logic in `main.js` + login endpoint accepting it  
+**Severity:** Critical  
 
-**##### **Actions:****
+---
+
+##### Risks:
+- Anyone who knows the target email can login without the real password
+- Full impersonation / account takeover
+- If this pattern exist on other accounts/endpoints, it’s a big fail
+
+---
+
+##### Actions:
+- decode and encode crypted passsword
