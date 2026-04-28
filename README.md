@@ -42,5 +42,7 @@ Each file = one challenge solved, with:
 
 ## 👤 Author
 
-**Simon Slack** — Epitech Paris (Class of 2028)  
+**Simon Slack** — Epitech Paris (Class of 2028)
 [github.com/Slacknsss](https://github.com/Slacknsss)
+**Jules Fischer** — Epitech Paris (Class of 2028)
+[github.com/Slacknsss](https://github.com/Jules-Epitech)
